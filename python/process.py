@@ -21,10 +21,13 @@ def get_entries(inpath: str) -> int:
     Get number of entries in the TTree named "events".
     '''
     nevents = None
-    with ROOT.TFile(inpath, 'READ') as infile:
-        if infile.Get("events"):
-            tt = infile.Get("events")
-            nevents = tt.GetEntries()
+    try:
+        with ROOT.TFile(inpath, 'READ') as infile:
+            if infile.Get("events"):
+                tt = infile.Get("events")
+                nevents = tt.GetEntries()
+    except OSError:
+        pass
     return nevents
 
 
@@ -79,8 +82,13 @@ def get_process_info_files(process: str, input_dir: str) -> tuple[list[str],
     if os.path.isdir(dirtest):
         flist = glob.glob(dirtest+"/*.root")
         for f in flist:
+            nevents = get_entries(f)
+            if nevents is None:
+                LOGGER.warning('File %s can\'t be read or has no events '
+                               'TTree, skipping it!', f)
+                continue
             filelist.append(f)
-            eventlist.append(get_entries(f))
+            eventlist.append(nevents)
 
     return filelist, eventlist
 
