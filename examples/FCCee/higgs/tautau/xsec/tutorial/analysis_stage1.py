@@ -2,15 +2,69 @@ import os, copy # tagging
 import ROOT
 import urllib.request
 
+#x = 0.005
+x = 1
+g = x
+#x = float(input("fraction? ( e.g. 0.005 )  "))
+#if x < 0.001:
+#    x = 0.001
+#    print("fraction to low, instead was set to:", x)
+#    print()
+#if x <= 0.005:
+#    g = 0.01
+#    print("fraction partly adjusted due to number of files given")
+#    print()
+#else:
+#    g = x
+
+#print()
+#print("fractions adjusted to:", x, "and", g, "respectively")
+#print()
+
+
+
 # list of processes that you want to analyse, the name is the same of your .root file (after detector simulation)
 processList = {
-    'ee_Htautau': {'chunks':1},
+    #'zee_htautau': {'chunks':1},
+
+    'p8_ee_WW_ecm240':{'chunks':3740},   #, "fraction": x
+    'p8_ee_Zqq_ecm240':{'chunks':1007},  #, "fraction": x
+    'p8_ee_ZZ_ecm240':{'chunks':1000},   #, "fraction": x
+    
+    'wzp6_ee_tautau_ecm240':{'chunks':1000}, #, "fraction": x
+    'wzp6_ee_mumuH_Htautau_ecm240': {'chunks':100},  #, "fraction": g
+    'wzp6_ee_eeH_Htautau_ecm240': {'chunks':100},    #, "fraction": g
 }
 #directory where the files can be found
-inputDir = "/work/"
+
+#inputDir = "/afs/cern.ch/user/a/ahmedn/FCCAnalyses/"
+prodTag     = "FCCee/winter2023/IDEA/"
+
+## necessary to run on HTCondor ###
+eosType = "eosuser"
+
+#Optional running on HTCondor, default is False
+runBatch = False
+
+nCPUS = 16
+
+#Optional batch queue name when running on HTCondor, default is workday
+#batchQueue = "longlunch"
+
+#Optional computing account when running on HTCondor, default is group_u_FCC.local_gen
+compGroup = "group_u_FCC.local_gen"
 
 #Optional: output directory, default is local running directory
-outputDir = "/"
+#q2 = str(input("definine outputDir yourself? (y/n)"))
+#if q2 == "y" or q2 == "j":
+#    outputDir = str(input("outputDir:"))
+#else:
+#   outputDir = "output/background_n1"
+
+outputDir = "/afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/background_compltest"
+
+
+nCPUS = 16 #6
 
 # additional/costom C++ functions, defined in header files (optional)
 includePaths = ["functions.h"]
@@ -47,16 +101,62 @@ class RDFanalysis():
                 .Alias("Electron0", "Electron#0.index")
                 .Define("RecoElectrons",  "ReconstructedParticle::get(Electron0, ReconstructedParticles)")
                 .Define("n_RecoElectrons",  "ReconstructedParticle::get_n(RecoElectrons)") #count how many electrons are in the event in total
+                #my own additions / my own code:
+                .Define("e_RecoElectrons",          "ReconstructedParticle::get_e(RecoElectrons)")      #energy 
+                .Define("momentum_RecoElectrons",   "ReconstructedParticle::get_p(RecoElectrons)")      #momentum
+                .Define("px_RecoElectrons",         "ReconstructedParticle::get_px(RecoElectrons)")     #px-component  of momentum
+                .Define("py_RecoElectrons",         "ReconstructedParticle::get_py(RecoElectrons)")     #py-component  of momentum
+                .Define("pz_RecoElectrons",         "ReconstructedParticle::get_pz(RecoElectrons)")     #pz-component  of momentum
+                .Define("pt_RecoElectrons",         "ReconstructedParticle::get_pt(RecoElectrons)")     #transverse momentum // x-y-Ebene
+                .Define("eta_RecoElectrons",        "ReconstructedParticle::get_eta(RecoElectrons)")    #angle between transverse plane and (genereal) momentum of respective particle
+                .Define("theta_RecoElectrons",      "ReconstructedParticle::get_theta(RecoElectrons)")  #angle between z-axis (axis of accellerator-pipe) and (general) momentum of respective particle
+                .Define("phi_RecoElectrons",        "ReconstructedParticle::get_phi(RecoElectrons)")    #angle gives eta-angle of the transverse momentum (pt) in the xy plane (transverse plane) of the particle
+                .Define("m_RecoElectrons",           "ReconstructedParticle::get_mass(RecoElectrons)")   #mass of particle
+                .Define("charge_RecoElectrons",      "ReconstructedParticle::get_charge(RecoElectrons)") #charge of particle
+
+                .Define("RecoElectrons_p4",  "FCCAnalyses::ZHfunctions::build_p4(px_RecoElectrons, py_RecoElectrons, pz_RecoElectrons, e_RecoElectrons)") #Lorentsvektor of Electron
+
                 
                 # MUONS
                 .Alias("Muon0", "Muon#0.index")
                 .Define("RecoMuons",  "ReconstructedParticle::get(Muon0, ReconstructedParticles)")
                 .Define("n_RecoMuons",  "ReconstructedParticle::get_n(RecoMuons)") #count how many muons are in the event in total
+                #my own additions / my own code:
+                .Define("e_RecoMuons",          "ReconstructedParticle::get_e(RecoMuons)")      #energy 
+                .Define("momentum_RecoMuons",   "ReconstructedParticle::get_p(RecoMuons)")      #momentum
+                .Define("px_RecoMuons",         "ReconstructedParticle::get_px(RecoMuons)")     #px-component  of momentum
+                .Define("py_RecoMuons",         "ReconstructedParticle::get_py(RecoMuons)")     #py-component  of momentum
+                .Define("pz_RecoMuons",         "ReconstructedParticle::get_pz(RecoMuons)")     #pz-component  of momentum
+                .Define("pt_RecoMuons",         "ReconstructedParticle::get_pt(RecoMuons)")     #transverse momentum // x-y-Ebene
+                .Define("eta_RecoMuons",        "ReconstructedParticle::get_eta(RecoMuons)")    #angle between transverse plane and (genereal) momentum of respective particle
+                .Define("theta_RecoMuons",      "ReconstructedParticle::get_theta(RecoMuons)")  #angle between z-axis (axis of accellerator-pipe) and (general) momentum of respective particle
+                .Define("phi_RecoMuons",        "ReconstructedParticle::get_phi(RecoMuons)")    #angle gives eta-angle of the transverse momentum (pt) in the xy plane (transverse plane) of the particle
+                .Define("m_RecoMuons",          "ReconstructedParticle::get_mass(RecoMuons)")   #mass of particle
+                .Define("charge_RecoMuons",     "ReconstructedParticle::get_charge(RecoMuons)") #charge of particle
+
+                .Define("RecoMuons_p4",  "FCCAnalyses::ZHfunctions::build_p4(px_RecoMuons, py_RecoMuons, pz_RecoMuons, e_RecoMuons)") #Lorentzvektor of Muon
+
+
                 
                 #PHOTONS
                 .Alias("Photon0", "Photon#0.index") 
                 .Define("RecoPhotons",  "ReconstructedParticle::get(Photon0, ReconstructedParticles)")
                 .Define("n_RecoPhotons",  "ReconstructedParticle::get_n(RecoPhotons)") #count how many photons are in the event in total
+                #my own additions / my own code:
+                .Define("e_RecoPhotons",          "ReconstructedParticle::get_e(RecoPhotons)")      #energy 
+                .Define("momentum_RecoPhotons",   "ReconstructedParticle::get_p(RecoPhotons)")      #momentum
+                .Define("px_RecoPhotons",         "ReconstructedParticle::get_px(RecoPhotons)")     #px-component  of momentum
+                .Define("py_RecoPhotons",         "ReconstructedParticle::get_py(RecoPhotons)")     #py-component  of momentum
+                .Define("pz_RecoPhotons",         "ReconstructedParticle::get_pz(RecoPhotons)")     #pz-component  of momentum
+                .Define("pt_RecoPhotons",         "ReconstructedParticle::get_pt(RecoPhotons)")     #transverse momentum // x-y-Ebene
+                .Define("eta_RecoPhotons",        "ReconstructedParticle::get_eta(RecoPhotons)")    #angle between transverse plane and (genereal) momentum of respective particle
+                .Define("theta_RecoPhotons",      "ReconstructedParticle::get_theta(RecoPhotons)")  #angle between z-axis (axis of accellerator-pipe) and (general) momentum of respective particle
+                .Define("phi_RecoPhotons",        "ReconstructedParticle::get_phi(RecoPhotons)")    #angle gives eta-angle of the transverse momentum (pt) in the xy plane (transverse plane) of the particle
+                .Define("m_RecoPhotons",          "ReconstructedParticle::get_mass(RecoPhotons)")   #mass of particle
+                .Define("charge_RecoPhotons",     "ReconstructedParticle::get_charge(RecoPhotons)") #charge of particle
+                
+
+
                 
                 #NEUTRAL HADRONS
                 # we don't have a class for neutral hadrons only but we have one class with all particles (ReconstructedParticles) so we can select the particles we want ourselves
@@ -120,11 +220,66 @@ class RDFanalysis():
                 .Define("TauFromJet_R5_tau",    "TauFromJet_R5[TauFromJet_R5_type_sel>=0]") 
                 .Define("TauFromJet_R5_p",      "ReconstructedParticle::get_p(TauFromJet_R5_tau)")
                 .Define("n_TauFromJet_R5",      "TauFromJet_R5_p.size()")
+                #my own additions / my own code:
+                .Define("e_TauFromJet_R5",          "ReconstructedParticle::get_e(TauFromJet_R5)")      #energy 
+                .Define("momentum_TauFromJet_R5",   "ReconstructedParticle::get_p(TauFromJet_R5)")      #momentum
+                .Define("px_TauFromJet_R5",         "ReconstructedParticle::get_px(TauFromJet_R5)")     #px-component  of momentum
+                .Define("py_TauFromJet_R5",         "ReconstructedParticle::get_py(TauFromJet_R5)")     #py-component  of momentum
+                .Define("pz_TauFromJet_R5",         "ReconstructedParticle::get_pz(TauFromJet_R5)")     #pz-component  of momentum
+                .Define("pt_TauFromJet_R5",         "ReconstructedParticle::get_pt(TauFromJet_R5)")     #transverse momentum // x-y-Ebene
+                .Define("eta_TauFromJet_R5",        "ReconstructedParticle::get_eta(TauFromJet_R5)")    #angle between transverse plane and (genereal) momentum of respective particle
+                .Define("theta_TauFromJet_R5",      "ReconstructedParticle::get_theta(TauFromJet_R5)")  #angle between z-axis (axis of accellerator-pipe) and (general) momentum of respective particle
+                .Define("phi_TauFromJet_R5",        "ReconstructedParticle::get_phi(TauFromJet_R5)")    #angle gives eta-angle of the transverse momentum (pt) in the xy plane (transverse plane) of the particle
+                .Define("m_TauFromJet_R5",          "ReconstructedParticle::get_mass(TauFromJet_R5)")   #mass of particle
+                .Define("charge_TauFromJet_R5",     "ReconstructedParticle::get_charge(TauFromJet_R5)") #charge of particle
+
+                .Define("RecoTau_p4",  "FCCAnalyses::ZHfunctions::build_p4(px_TauFromJet_R5, py_TauFromJet_R5, pz_TauFromJet_R5, e_TauFromJet_R5)") #Lorentzvektor of Tau
+
+                
 
                 # we can redefine our jets based on wether they are not taus 
-                .Define("Jets_R5_sel_e",      "Jets_R5_e[TauFromJet_R5_type_sel<0 ]")
-                .Define("n_Jets_R5_sel", "Jets_R5_sel_e.size()")
-               
+                .Define("Jets_R5_sel",      "Jets_R5[TauFromJet_R5_type_sel<0 ]")
+                
+                #my own additions / my own code:
+                .Define("e_Jets_R5_sel",          "JetClusteringUtils::get_e(Jets_R5_sel)")      #energy 
+                .Define("momentum_Jets_R5_sel",   "JetClusteringUtils::get_p(Jets_R5_sel)")      #momentum
+                .Define("px_Jets_R5_sel",         "JetClusteringUtils::get_px(Jets_R5_sel)")     #px-component  of momentum
+                .Define("py_Jets_R5_sel",         "JetClusteringUtils::get_py(Jets_R5_sel)")     #py-component  of momentum
+                .Define("pz_Jets_R5_sel",         "JetClusteringUtils::get_pz(Jets_R5_sel)")     #pz-component  of momentum
+                .Define("pt_Jets_R5_sel",         "JetClusteringUtils::get_pt(Jets_R5_sel)")     #transverse momentum // x-y-Ebene
+                .Define("eta_Jets_R5_sel",        "JetClusteringUtils::get_eta(Jets_R5_sel)")    #angle between transverse plane and (genereal) momentum of respective particle
+                .Define("theta_Jets_R5_sel",      "JetClusteringUtils::get_theta(Jets_R5_sel)")  #angle between z-axis (axis of accellerator-pipe) and (general) momentum of respective particle
+                .Define("phi_Jets_R5_sel",        "JetClusteringUtils::get_phi(Jets_R5_sel)")    #angle gives eta-angle of the transverse momentum (pt) in the xy plane (transverse plane) of the particle
+                .Define("m_Jets_R5_sel",          "JetClusteringUtils::get_m(Jets_R5_sel)")   #mass of particle
+                #.Define("charge_Jets_R5_sel",     "JetClusteringUtils::get_charge(Jets_R5_sel)") #charge of particle
+                .Define("n_Jets_R5_sel", "e_Jets_R5_sel.size()")
+                
+
+                .Filter("((n_RecoElectrons == 2 && (charge_RecoElectrons.at(0) + charge_RecoElectrons.at(1) == 0) && n_RecoMuons == 0) || (n_RecoMuons == 2 && ((charge_RecoMuons.at(0) + charge_RecoMuons.at(1)) == 0) && n_RecoElectrons == 0) )   && (n_TauFromJet_R5 == 2)")
+                .Filter("((charge_TauFromJet_R5.at(0) + charge_TauFromJet_R5.at(1)) == 0) && n_Jets_R5_sel == 0")
+
+                .Define("higgs_vector",        "RecoTau_p4[0] + RecoTau_p4[1]")
+                .Define("higgs_mass",          "higgs_vector.M()")
+                .Define("higgs_energy",        "higgs_vector.E()")
+
+
+                .Define("Z_vector",        "if (n_RecoElectrons == 2) return RecoElectrons_p4[0] + RecoElectrons_p4[1]; else return RecoMuons_p4[0] + RecoMuons_p4[1];")
+                .Define("Z_mass",          "Z_vector.M()")
+                .Define("Z_energy",        "Z_vector.E()")
+                
+                
+                #recoil mass
+                .Define("RecoInitial_p4",  "TLorentzVector(0, 0, 1, 240)") #
+
+                .Define("RecoilVector",     "RecoInitial_p4 - Z_vector")
+                .Define("RecoilMass",       "RecoilVector.M()")
+
+                #collinear mass
+                .Define("r1",               "abs( ( (RecoEmiss_py*px_TauFromJet_R5[0]) - (RecoEmiss_px*py_TauFromJet_R5[0]) )  /  ( (py_TauFromJet_R5[0]*px_TauFromJet_R5[1]) - (px_TauFromJet_R5[0]*py_TauFromJet_R5[1]) ) )") #[0] => 1 :.: [1] => 2
+                .Define("r2",               "abs( ( (RecoEmiss_py*px_TauFromJet_R5[1]) - (RecoEmiss_px*py_TauFromJet_R5[1]) )  /  ( (py_TauFromJet_R5[0]*px_TauFromJet_R5[1]) - (px_TauFromJet_R5[0]*py_TauFromJet_R5[1]) ) )") #[0] => 1 :.: [1] => 2
+                .Define("f1",               "1 / (1 + r1)")
+                .Define("f2",               "1 / (1 + r2)")
+                .Define("CollinearMass",    "higgs_mass / (sqrt(f1 * f2))")
         )
         
         return df2
@@ -134,18 +289,85 @@ class RDFanalysis():
         branchList = [
 
             "n_RecoElectrons",
-            "RecoElectron_e",
-            "RecoElectron_p",
-            "RecoElectron_pt",
-            "RecoElectron_px",
-            "RecoElectron_py",
-            "RecoElectron_pz",
-            "RecoElectron_y",
-            "RecoElectron_eta",
-            "RecoElectron_theta",
-            "RecoElectron_phi",
-            "RecoElectron_charge",
-            "RecoElectron_mass",
+            "e_RecoElectrons",
+            "momentum_RecoElectrons",
+            "px_RecoElectrons",
+            "py_RecoElectrons",
+            "pz_RecoElectrons",
+            "pt_RecoElectrons",
+            "eta_RecoElectrons",
+            "theta_RecoElectrons",
+            "phi_RecoElectrons",
+            "m_RecoElectrons",
+            "charge_RecoElectrons",
+
+
+            "n_RecoMuons",
+            "e_RecoMuons",
+            "momentum_RecoMuons",
+            "px_RecoMuons",
+            "py_RecoMuons",
+            "pz_RecoMuons",
+            "pt_RecoMuons",
+            "eta_RecoMuons",
+            "theta_RecoMuons",
+            "phi_RecoMuons",
+            "m_RecoMuons",
+            "charge_RecoMuons",
+
+
+            "n_RecoPhotons",
+            "e_RecoPhotons",
+            "momentum_RecoPhotons",
+            "px_RecoPhotons",
+            "py_RecoPhotons",
+            "pz_RecoPhotons",
+            "pt_RecoPhotons",
+            "eta_RecoPhotons",
+            "theta_RecoPhotons",
+            "phi_RecoPhotons",
+            "m_RecoPhotons",
+            "charge_RecoPhotons",
+
+            "n_TauFromJet_R5",
+            "e_TauFromJet_R5",
+            "momentum_TauFromJet_R5",
+            "px_TauFromJet_R5",
+            "py_TauFromJet_R5",
+            "pz_TauFromJet_R5",
+            "pt_TauFromJet_R5",
+            "eta_TauFromJet_R5",
+            "theta_TauFromJet_R5",
+            "phi_TauFromJet_R5",
+            "m_TauFromJet_R5",
+            "charge_TauFromJet_R5",
+
+
+            "e_Jets_R5_sel",
+            "momentum_Jets_R5_sel",
+            "px_Jets_R5_sel",
+            "py_Jets_R5_sel",
+            "pz_Jets_R5_sel",
+            "pt_Jets_R5_sel",
+            "eta_Jets_R5_sel",
+            "theta_Jets_R5_sel",
+            "phi_Jets_R5_sel",
+            "m_Jets_R5_sel",
+
+            "higgs_vector",
+            "higgs_mass",
+            "higgs_energy",
+
+            "Z_vector",
+            "Z_mass",
+            "Z_energy",
+
+            "RecoilVector",
+            "RecoilMass",
+
+            "CollinearMass",
+
+            
             
         ]
 

@@ -340,6 +340,7 @@ def run_rdf(rdf_module,
         LOGGER.error('During the execution of the analysis file exception '
                      'occurred:\n%s', excp)
         sys.exit(3)
+        #evtcount = 0
 
     return evtcount
 
@@ -484,6 +485,7 @@ def run_local(rdf_module, infile_list, args):
                          'Aborting...', filepath)
             infile.Close()
             sys.exit(3)
+            #continue
         infile.Close()
 
     LOGGER.info(info_msg)

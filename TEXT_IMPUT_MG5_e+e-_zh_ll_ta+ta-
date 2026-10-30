@@ -1,0 +1,17 @@
+generate e+ e- > z h, z > l+ l-, h > ta+ ta-
+
+output gg_all_h
+launch gg_all_h
+
+
+done
+
+
+set lpp1 0
+set lpp2 0
+set ebeam1 120                 
+set ebeam2 120
+set no_parton_cuts
+
+set nevents 1000000
+done

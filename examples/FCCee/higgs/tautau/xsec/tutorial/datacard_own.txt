@@ -1,0 +1,26 @@
+imax    1 number of bins
+jmax    * number of processes minus 1
+kmax    * number of nuisance parameters
+--------------------------------------------------------------------------------
+shapes p8_ee_WW_ecm240 * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/p8_ee_WW_ecm240_sel_histo.root $CHANNEL
+shapes p8_ee_Zqq_ecm240 * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/p8_ee_Zqq_ecm240_sel_histo.root $CHANNEL
+shapes p8_ee_ZZ_ecm240 * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/p8_ee_ZZ_ecm240_sel_histo.root $CHANNEL
+shapes wzp6_ee_mumuH_Htautau_ecm240 * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/wzp6_ee_mumuH_Htautau_ecm240_sel_histo.root $CHANNEL
+shapes wzp6_ee_eeH_Htautau_ecm240 * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/wzp6_ee_eeH_Htautau_ecm240_sel_histo.root $CHANNEL
+shapes data_obs * /afs/cern.ch/user/a/ahmedn/FCCAnalyses/output/final_cutList1/wzp6_ee_eeH_Htautau_ecm240_sel_histo.root $CHANNEL
+--------------------------------------------------------------------------------
+bin                        RecoilMass
+observation                -1
+--------------------------------------------------------------------------------
+bin                        RecoilMass               RecoilMass          RecoilMass          RecoilMass                      RecoilMass                   
+process                    p8_ee_WW_ecm240          p8_ee_Zqq_ecm240    p8_ee_ZZ_ecm240     wzp6_ee_mumuH_Htautau_ecm240    wzp6_ee_eeH_Htautau_ecm240   
+process                     1                        2                  3                   -1                               0                         
+rate                       -1                       -1                  -1                  -1                              -1                         
+--------------------------------------------------------------------------------
+p8_ee_WW_ecm240                 lnN     1.02    -       -              -       -
+p8_ee_Zqq_ecm240                lnN     -       1.02    -              -       -
+p8_ee_ZZ_ecm240                 lnN     -       -       1.02           -       -
+wzp6_ee_mumuH_Htautau_ecm240    lnN     -       -       -              1.02    -
+wzp6_ee_eeH_Htautau_ecm240      lnN     -       -       -              -       1.02
+
+* autoMCStats 1 1

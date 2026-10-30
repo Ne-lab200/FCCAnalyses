@@ -590,15 +590,15 @@ def drawStack(name, ylabel, legend, leftText, rightText, formats, directory,
         ymin_ = min(ymin_sig, ymin_bkg)
         ymax_ = max(ymax_sig, ymax_bkg)
     if ymin == -1:
-        ymin = ymin_*0.1 if logY else 0
+        ymin = ymin_*1e-4 if logY else 0
     if ymax == -1:
-        ymax = ymax_*1000. if logY else 1.4*ymax_
+        ymax = ymax_*1e6 if logY else 2*ymax_
     if ymin <= 0 and logY:
         LOGGER.error('Log scale can\'t start at: %i', ymin)
         sys.exit(3)
-    h_dummy.SetMaximum(1e23)
-    h_dummy.SetMinimum(1e-6)
-
+    h_dummy.SetMaximum(ymax)
+    h_dummy.SetMinimum(ymin)
+    
     legend.Draw()
     if legend2 is not None:
         legend2.Draw()

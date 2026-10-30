@@ -1,0 +1,299 @@
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 0
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 0
+
+Total size of signal sample: 0
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Effective input shape for training 
+X: (161970, 8)
+Y: (161970,)
+
+{'n_estimators': 200, 'learning_rate': 0.3, 'max_depth': 2}
+Feature importances 
+               importance
+Z_mass           0.538922
+RecoilMass       0.421780
+CollinearMass    0.020800
+higgs_mass       0.006127
+Z_energy         0.004615
+tau1             0.002691
+higgs_energy     0.002682
+tau2             0.002383
+Number of events in the dataframe of wzp6_ee_mumuH_Htautau_ecm240: 100354
+
+Number of events in the dataframe of wzp6_ee_eeH_Htautau_ecm240: 89301
+
+Total size of signal sample: 189655
+Number of events in the dataframe of p8_ee_WW_ecm240: 7536
+Total number of events for p8_ee_WW_ecm240: 7536
+Requested number of events for p8_ee_WW_ecm240: 23003
+
+Number of events in the dataframe of p8_ee_Zqq_ecm240: 853
+Total number of events for p8_ee_Zqq_ecm240: 853
+Requested number of events for p8_ee_Zqq_ecm240: 30966
+
+Number of events in the dataframe of p8_ee_ZZ_ecm240: 15617
+Total number of events for p8_ee_ZZ_ecm240: 15617
+Requested number of events for p8_ee_ZZ_ecm240: 26200
+
+Number of events in the dataframe of wzp6_ee_tautau_ecm240: 17726
+Total number of events for wzp6_ee_tautau_ecm240: 17726
+Requested number of events for wzp6_ee_tautau_ecm240: 109483
+
+Total size of bkg sample: 41732
+
+Normalised sample size 
+Training: 161970
+Test: 69417
+
+Effective input shape for training 
+X: (161970, 8)
+Y: (161970,)
+
+{'n_estimators': 200, 'learning_rate': 0.3, 'max_depth': 2}
+Feature importances 
+               importance
+Z_mass           0.591554
+RecoilMass       0.367822
+CollinearMass    0.022976
+higgs_mass       0.006042
+Z_energy         0.004285
+higgs_energy     0.002626
+tau2             0.002378
+tau1             0.002317

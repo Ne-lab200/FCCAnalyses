@@ -1,0 +1,37 @@
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l||c|} \hline
+          & selBDT \\
+        \hline
+        p8_ee_WW_ecm240 & 2.73e+00 \\
+        p8_ee_ZZ_ecm240 & 1.22e+02 \\
+        wzp6_ee_mumuH_Htautau_ecm240 & 1.02e+03 \\
+        p8_ee_Zqq_ecm240 & 9.92e+00 \\
+        wzp6_ee_eeH_Htautau_ecm240 & 9.51e+02 \\
+        wzp6_ee_tautau_ecm240 & 0. \\
+        \hline 
+    \end{tabular}} 
+    \caption{Caption} 
+    \label{tab:my_label} 
+\end{table}
+
+
+Efficiency:
+\begin{table}[H] 
+    \centering 
+    \resizebox{\textwidth}{!}{ 
+    \begin{tabular}{|l||c|} \hline
+          & selBDT \\
+        \hline
+        p8_ee_WW_ecm240 & 6.63e-04 \\
+        p8_ee_ZZ_ecm240 & 2.98e-02 \\
+        wzp6_ee_mumuH_Htautau_ecm240 & 8.87e-01 \\
+        p8_ee_Zqq_ecm240 & 1.17e-03 \\
+        wzp6_ee_eeH_Htautau_ecm240 & 8.78e-01 \\
+        wzp6_ee_tautau_ecm240 & 0. \\
+        \hline 
+    \end{tabular}} 
+    \caption{Caption} 
+    \label{tab:my_label} 
+\end{table}

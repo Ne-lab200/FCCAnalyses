@@ -7,7 +7,7 @@ Next:numberCount = 10000             ! print message every n events
 !Beams:idB = -11                    ! second beam, e- = -11
 
 Beams:frameType = 4
-Beams:LHEF = unweighted_events.lhe
+Beams:LHEF = /afs/cern.ch/user/a/ahmedn/MG5_aMC_v3_8_1/higgs_tautau/Events/run_01/unweighted_events.lhe
 
 ! Beams:allowMomentumSpread  = off
 

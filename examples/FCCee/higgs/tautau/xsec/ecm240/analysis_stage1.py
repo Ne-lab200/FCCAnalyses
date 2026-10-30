@@ -100,18 +100,18 @@ outputDir   = "/ceph/sgiappic/HiggsCP/stage1_241105/"
 includePaths = ["functions.h"]
 
 ### necessary to run on HTCondor ###
-#eosType = "eosuser"
+eosType = "eosuser"
 
 #Optional running on HTCondor, default is False
-#runBatch = True
+runBatch = True
 
 #nCPUS = 6
 
 #Optional batch queue name when running on HTCondor, default is workday
-#batchQueue = "longlunch"
+batchQueue = "longlunch"
 
 #Optional computing account when running on HTCondor, default is group_u_FCC.local_gen
-#compGroup = "group_u_FCC.local_gen"
+compGroup = "group_u_FCC.local_gen"
 
 ## tagging -------------------------------
 ## latest particle transformer model, trained on 9M jets in winter2023 samples

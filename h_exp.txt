@@ -1,0 +1,17 @@
+generate h h > h 
+
+output h_exp
+launch h_exp
+
+
+done
+
+
+set lpp1 0
+set lpp2 0
+set ebeam1 215             
+set ebeam2 215
+set no_parton_cuts
+
+set nevents 100000
+done
